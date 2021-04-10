@@ -10,5 +10,7 @@ fn main() {
         eprintln!(r#""const ROUGHLY_PI: f32 = 3.14;""#);
         process::exit(1);
     }
-    println!("{}", lexemize(&args[1]));
+    // See stackoverflow.com/a/60581271 and reddit.com/r/rust/comments/cfybfa
+    let arg = env::args().nth(1).expect("ERROR: Missing argument");
+    println!("{}", lexemize(Box::leak(arg.into_boxed_str())));
 }

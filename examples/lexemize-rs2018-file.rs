@@ -14,5 +14,6 @@ fn main() {
         eprintln!("ERROR: Problem reading the file:\n    {}", err);
         process::exit(2);
     });
-    println!("{}", lexemize(&contents));
+    // See stackoverflow.com/a/60581271 and reddit.com/r/rust/comments/cfybfa
+    println!("{}", lexemize(Box::leak(contents.into_boxed_str())));
 }

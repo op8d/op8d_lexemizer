@@ -1,6 +1,6 @@
 [package]
 name = "op8d_lexemizer"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Opinionated <info@op8d.com>"]
 edition = "2018"
 description = "Opinionated library for transforming code to a vector of Lexemes"
